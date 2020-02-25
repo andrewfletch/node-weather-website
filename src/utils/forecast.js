@@ -11,7 +11,8 @@ const forecast = (latitude, longitude, callback) => {
         } else {
             const currently = body.currently
             const daily = body.daily
-            callback(undefined, `Today it will be ${daily.data[0].summary.toLowerCase()} It is currently ${currently.temperature} degrees with a ${currently.precipProbability}% chance of rain.`)
+            console.log(daily)
+            callback(undefined, `Today it will be ${daily.data[0].summary.toLowerCase()} There will be a high of ${Math.round(daily.data[0].temperatureHigh)}, and a low of ${Math.round(daily.data[0].temperatureLow)}. It is currently ${Math.round(currently.temperature)} degrees with a ${Math.round(currently.precipProbability)}% chance of rain.`)
         }
     })
 
